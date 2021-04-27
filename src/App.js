@@ -31,26 +31,13 @@ class App extends Component {
     console.log('render', this);
     return (
       <div className='App'>
-        {/* <Subject title={this.state.subject.title} sub={this.state.subject.sub}></Subject> */}
-        <header>
-          <h1>
-            <a
-              href='/'
-              onClick={function (e) {
-                console.log(e);
-                e.preventDefault();
-                // this.state.mode = 'welcome'; : this에 아무 값도 없어 state를 읽을 수 없음 -> bind(this)를 함수 끝난 직후에 추가해주기 -> 그럼 this가 본 컴포넌트가 됨! + 문법에도 맞지 않음
-                this.setState({
-                  // 요렇게 직접 변경 말고 함수 형태로 변경해야  함
-                  mode: 'welcome',
-                });
-              }.bind(this)}
-            >
-              {this.state.subject.title}
-            </a>
-          </h1>
-          {this.state.subject.sub}
-        </header>
+        <Subject
+          title={this.state.subject.title}
+          sub={this.state.subject.sub}
+          onChangePage={function () {
+            this.setState({ mode: 'welcome' });
+          }.bind(this)}
+        ></Subject>
         <TOC data={this.state.contents}></TOC>
         <Content title={_title} desc={_desc}></Content>
       </div>
