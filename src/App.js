@@ -41,7 +41,7 @@ class App extends Component {
                 e.preventDefault();
                 // this.state.mode = 'welcome'; : this에 아무 값도 없어 state를 읽을 수 없음 -> bind(this)를 함수 끝난 직후에 추가해주기 -> 그럼 this가 본 컴포넌트가 됨! + 문법에도 맞지 않음
                 this.setState({
-                  // 요렇게 직접 변경 말고 함수 형태로 변경해야 함
+                  // 요렇게 직접 변경 말고 함수 형태로 변경해야  함
                   mode: 'welcome',
                 });
               }.bind(this)}
